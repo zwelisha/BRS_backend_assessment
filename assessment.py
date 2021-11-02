@@ -18,7 +18,7 @@ def char_appearance_count(string:str, ch:chr):
     '''
     letter_count = 0
     for letter in string:
-        if letter == ch:
+        if letter.lower() == ch.lower():
             letter_count += 1
     return letter_count
 
