@@ -133,6 +133,6 @@ Question 2 Squares
 '''
 
 if __name__ == "__main__":
-    my_list = [2,3,5,1,7,4,4,4,2,6,0]
+    my_list = [2,3,5,10,1,40,6,0]
     print(merge_sort_ascending(my_list))  
     print(my_list)
