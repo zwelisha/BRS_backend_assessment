@@ -53,7 +53,7 @@ def write_to_file(file_name: str, string: str):
     try:
         f = open(file_name, "w")
     except FileNotFoundError:
-        print("There is no such file!")
+        ("There is no such file!")
     finally:
         words = string.split(" ")
         try:
@@ -207,9 +207,27 @@ class Square:
         self._tpr = new_tpr
     
     def get_width(self):
+        """
+        Calculates and returns the width of the square
+
+        Parameters:
+        None
+        
+        Returns:
+        float: the width of the square
+        """
         return abs(abs(self.btr.x) - abs(self.btl.x)) 
     
     def get_height(self):
+        """
+        Calculates and returns the height of the square
+
+        Parameters:
+        None
+        
+        Returns:
+        float: the height of the square
+        """
         return abs(abs(self._btr.y) - abs(self._tpr.y))
     
     
@@ -256,11 +274,29 @@ def sort_queue(queue):
 
 
 def insert_asc_to_queue(data_obj):
+    """
+    Insert queue item if it does not already exists in global queue
+
+    Parameters:
+    data_obj (list): the data object to add to the global queue
+
+    Returns:
+    None: void function, returns nothing.
+    """
     if not (data_obj in global_queue):
         global_queue.append(data_obj)
     sort_queue(global_queue)
 
 def consume_queue(queue):
+    """
+    displays queue items to the terminal
+
+    Parameters:
+    queue (list): a list containing queue objects to display
+
+    Returns:
+    None: void function, returns nothing.
+    """
     for queue_object in queue:
         print(queue)
 
@@ -273,14 +309,4 @@ if __name__ == "__main__":
     print(merge_sort_ascending(my_list))
     print(my_list)
 
-    p1 = Point(1,2)
-    p2 = Point(5,2)
-    p3 = Point(1,3)
-    p4 = Point(24,20)
-
-    insert_asc_to_queue({"index": 5, "data": "zweli"})
-    print(global_queue)
-    insert_asc_to_queue({"index": 2, "data": "malusi"})
-    print(global_queue)
-    insert_asc_to_queue({"index": 2, "data": "malusi"})
-    print(global_queue)
+    
