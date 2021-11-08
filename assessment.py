@@ -267,10 +267,9 @@ def is_intersecting(s1, s2):
         return True
     return False
 
-
+# Question 3
 # Helper function to sort the queue in ascending order, using the Bubble sort algorithm
 # This is slow, but I am running out of time.
-
 
 def sort_queue(queue):
     """
