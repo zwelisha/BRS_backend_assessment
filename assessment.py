@@ -1,5 +1,10 @@
 # Zweli (Zwelisha) Mthethwa
 
+# A better way fo implementing queues, but due to time and power issues, I used lists.
+# import queue from Queue
+
+global_queue = []
+
 """
 Question 1.1 - Count the number of times a char appears in a string
 """
@@ -228,6 +233,40 @@ def is_intersecting(s1,s2):
         return True
     return False
 
+# Helper function to sort the queue in ascending order, using the Bubble sort algorithm
+# This is slow, but I am running out of time.
+
+def sort_queue(queue):
+    """
+    Sorts a queue of objects in ascending order, using the Bubble sort algorithm
+
+    Parameters:
+    queue (list): the list emulating a queue data 
+    structure , sample data [{'index': 5, 'data': 'malusi'},{'index': 2, 'data': 'zweli'}]
+
+    Returns:
+    None: nothing, this is a void function.
+    """
+    n = len(queue)
+    for i in range(n):
+        for j in range(0, n-i-1):
+            if queue[j]["index"] > queue[j + 1]["index"]:
+                queue[j]["index"], queue[j+1]["index"] = queue[j+1]["index"], queue[j]["index"]
+    
+
+
+def insert_asc_to_queue(data_obj):
+    if not (data_obj in global_queue):
+        global_queue.append(data_obj)
+    sort_queue(global_queue)
+
+def consume_queue(queue):
+    for queue_object in queue:
+        print(queue)
+
+    
+        
+    
 
 if __name__ == "__main__":
     my_list = [2, 3, 5, 10, 1, 40, 6, 0]
@@ -239,3 +278,9 @@ if __name__ == "__main__":
     p3 = Point(1,3)
     p4 = Point(24,20)
 
+    insert_asc_to_queue({"index": 5, "data": "zweli"})
+    print(global_queue)
+    insert_asc_to_queue({"index": 2, "data": "malusi"})
+    print(global_queue)
+    insert_asc_to_queue({"index": 2, "data": "malusi"})
+    print(global_queue)
