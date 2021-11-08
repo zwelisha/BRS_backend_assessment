@@ -224,9 +224,8 @@ def is_intersecting(s1,s2):
     s2_width = s2.get_width()
     s2_height = s2.get_height()
 
-    if((s2.tpr.x <= s1.btl.x) and (s2.btl.x >= s1.tpr.x) and (s2.tpr.y <= s1.btl.y) and (s2.btl.y >= s1.tpr.y)){
+    if((s2.tpr.x <= s1.btl.x) and (s2.btl.x >= s1.tpr.x) and (s2.tpr.y <= s1.btl.y) and (s2.btl.y >= s1.tpr.y)):
         return True
-    }
     return False
 
 
