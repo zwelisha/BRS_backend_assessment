@@ -144,8 +144,77 @@ def merge_sort_ascending(arr):
 """
 Question 2 Squares
 """
+class Point:
+    '''Creates a 2D coordinate (x,y)'''
+    def __init__(self, x, y) -> None:
+        self._x = x
+        self._y = y 
+    
+    @property
+    def x(self):
+       return self._x
+
+    @x.setter
+    def x(self,new_x):
+        self._x = new_x 
+    
+    @property
+    def y(self):
+       return self._y
+
+    @x.setter
+    def y(self,new_y):
+        self._y = new_y 
+    
+    def __str__(self):
+        return f"Point({self.x},{self.y})"
+
+class Square:
+    def __init__(self, btl_point, btr_point, tpl_point, tpr_point):
+        self._btl = btl_point # Bottom left point
+        self._btr = btr_point # Bottom right point
+        self._tpl = tpl_point # Top left point
+        self._tpr = tpr_point # Top right point
+    
+    @property
+    def btl(self):
+        return self._btl
+    @btl.setter
+    def btl(self, new_btl):
+        self._btl = new_btl
+    @property
+    def btr(self):
+        return self._btr
+    @btr.setter
+    def btr(self, new_btr):
+        self._btr = new_btr
+    @property
+    def tpl(self):
+        return self._tpl
+    @tpl.setter
+    def tpl(self, new_tpl):
+        self._tpl = new_tpl
+    @property
+    def tpr(self):
+        return self._tpr
+    @tpr.setter
+    def tpr(self, new_tpr):
+        self._tpr = new_tpr
+    
+    
+    
+    
+    
 
 if __name__ == "__main__":
     my_list = [2, 3, 5, 10, 1, 40, 6, 0]
     print(merge_sort_ascending(my_list))
     print(my_list)
+
+    p1 = Point(2,3)
+    p2 = Point(6,3)
+    p3 = Point(2,6)
+    p4 = Point(6,6)
+
+    square1 = Square(p1,p2,p3,p4)
+    print(square1.btl)
