@@ -72,3 +72,6 @@ Feel free to add your own tests on `test_assessment.py`, I did not test all the 
 #### Authors
 
 [Zweli Mthethwa](https://www.linkedin.com/in/zweli-mthethwa-244b45a8/)
+
+### Sources
+For collision detection function I used an algorithm by  [Bytes N Bits](https://www.youtube.com/watch?v=SoSHVoIZYbY)
