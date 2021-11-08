@@ -1,5 +1,10 @@
 # Zweli (Zwelisha) Mthethwa
 
+# A better way fo implementing queues, but due to time and power issues, I used lists.
+# import queue from Queue
+
+global_queue = []
+
 """
 Question 1.1 - Count the number of times a char appears in a string
 """
@@ -48,7 +53,7 @@ def write_to_file(file_name: str, string: str):
     try:
         f = open(file_name, "w")
     except FileNotFoundError:
-        print("There is no such file!")
+        ("There is no such file!")
     finally:
         words = string.split(" ")
         try:
@@ -202,9 +207,27 @@ class Square:
         self._tpr = new_tpr
     
     def get_width(self):
+        """
+        Calculates and returns the width of the square
+
+        Parameters:
+        None
+        
+        Returns:
+        float: the width of the square
+        """
         return abs(abs(self.btr.x) - abs(self.btl.x)) 
     
     def get_height(self):
+        """
+        Calculates and returns the height of the square
+
+        Parameters:
+        None
+        
+        Returns:
+        float: the height of the square
+        """
         return abs(abs(self._btr.y) - abs(self._tpr.y))
     
     
@@ -228,14 +251,62 @@ def is_intersecting(s1,s2):
         return True
     return False
 
+# Helper function to sort the queue in ascending order, using the Bubble sort algorithm
+# This is slow, but I am running out of time.
+
+def sort_queue(queue):
+    """
+    Sorts a queue of objects in ascending order, using the Bubble sort algorithm
+
+    Parameters:
+    queue (list): the list emulating a queue data 
+    structure , sample data [{'index': 5, 'data': 'malusi'},{'index': 2, 'data': 'zweli'}]
+
+    Returns:
+    None: nothing, this is a void function.
+    """
+    n = len(queue)
+    for i in range(n):
+        for j in range(0, n-i-1):
+            if queue[j]["index"] > queue[j + 1]["index"]:
+                queue[j]["index"], queue[j+1]["index"] = queue[j+1]["index"], queue[j]["index"]
+    
+
+
+def insert_asc_to_queue(data_obj):
+    """
+    Insert queue item if it does not already exists in global queue
+
+    Parameters:
+    data_obj (list): the data object to add to the global queue
+
+    Returns:
+    None: void function, returns nothing.
+    """
+    if not (data_obj in global_queue):
+        global_queue.append(data_obj)
+    sort_queue(global_queue)
+
+def consume_queue(queue):
+    """
+    displays queue items to the terminal
+
+    Parameters:
+    queue (list): a list containing queue objects to display
+
+    Returns:
+    None: void function, returns nothing.
+    """
+    for queue_object in queue:
+        print(queue)
+
+    
+        
+    
 
 if __name__ == "__main__":
     my_list = [2, 3, 5, 10, 1, 40, 6, 0]
     print(merge_sort_ascending(my_list))
     print(my_list)
 
-    p1 = Point(1,2)
-    p2 = Point(5,2)
-    p3 = Point(1,3)
-    p4 = Point(24,20)
-
+    
