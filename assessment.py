@@ -201,20 +201,42 @@ class Square:
     def tpr(self, new_tpr):
         self._tpr = new_tpr
     
+    def get_width(self):
+        return abs(abs(self.btr.x) - abs(self.btl.x)) 
+    
+    def get_height(self):
+        return abs(abs(self._btr.y) - abs(self._tpr.y))
     
     
-    
-    
+def is_intersecting(s1,s2):
+    """
+    Checks if two squares intersects in two dimension.
+
+    Parameters:
+    s1 (Square): the first square
+    s2 (Square): the second square
+
+    Returns:
+    bool: true if the square intersect, false if they do not.
+    """
+    s1_width = s1.get_width()
+    s1_height = s1.get_height()
+    s2_width = s2.get_width()
+    s2_height = s2.get_height()
+
+    if((s2.tpr.x <= s1.btl.x) and (s2.btl.x >= s1.tpr.x) and (s2.tpr.y <= s1.btl.y) and (s2.btl.y >= s1.tpr.y)){
+        return True
+    }
+    return False
+
 
 if __name__ == "__main__":
     my_list = [2, 3, 5, 10, 1, 40, 6, 0]
     print(merge_sort_ascending(my_list))
     print(my_list)
 
-    p1 = Point(2,3)
-    p2 = Point(6,3)
-    p3 = Point(2,6)
-    p4 = Point(6,6)
+    p1 = Point(1,2)
+    p2 = Point(5,2)
+    p3 = Point(1,3)
+    p4 = Point(24,20)
 
-    square1 = Square(p1,p2,p3,p4)
-    print(square1.btl)
